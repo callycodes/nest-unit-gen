@@ -1,0 +1,46 @@
+{
+  "name": "nest-unit-gen",
+  "version": "1.0.0",
+  "description": "Unit test generator for NestJS applications",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "keywords": [
+    "node",
+    "nest",
+    "nestjs",
+    "unit test",
+    "unit",
+    "generator"
+  ],
+  "author": "Cal Bass <cal@cally.dev> (https://github.com/callycodes/)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/callycodes/nest-unit-gen.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.5.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.4.4"
+  },
+  "scripts": {
+    "eslint": "eslint .",
+    "build": "npm run build-esm && npm run build-cjs && npm run build-types",
+    "build-esm": "npx tsc -p tsconfig-esm.json",
+    "build-cjs": "npx tsc -p tsconfig-cjs.json",
+    "build-types": "npx tsc -p tsconfig.types.json"
+  },
+  "devDependencies": {
+  }
+}
