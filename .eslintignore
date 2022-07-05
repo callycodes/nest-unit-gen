@@ -1,5 +1,1 @@
-coverage
-examples
-test
-src/public
-build
+/dist
