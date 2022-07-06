@@ -19,7 +19,9 @@
   "dependencies": {
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
-    "@oclif/plugin-plugins": "^2.0.1"
+    "@oclif/plugin-plugins": "^2.0.1",
+    "mustache": "^4.2.0",
+    "ts-file-parser": "^0.0.21"
   },
   "devDependencies": {
     "@oclif/test": "^2",
@@ -48,8 +50,8 @@
     ],
     "topicSeparator": " ",
     "topics": {
-      "hello": {
-        "description": "Say hello to the world and others"
+      "controllers": {
+        "description": "Generate validation tests for controllers"
       }
     }
   },

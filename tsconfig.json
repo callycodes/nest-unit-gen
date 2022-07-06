@@ -5,10 +5,15 @@
     "module": "commonjs",
     "outDir": "dist",
     "rootDir": "src",
-    "strict": true,
-    "target": "es2019"
+    "strict": false,
+    "target": "es2019",
+    "skipLibCheck": true,
+    "types": []
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
