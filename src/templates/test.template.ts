@@ -7,17 +7,17 @@ import { Test } from '@nestjs/testing';
 import { configureNestExpressApplication } from '@orderpay/shared/server';
 import * as request from 'supertest';
 
-// import { ImportModule } from '../../something-here.module';
+import { {{ module_name }} } from '{{ import }}';
 
 describe('{{ name }} Validation Tests', () => {
   let app: INestApplication;
   beforeAll(async () => {
     const testModule = await Test.createTestingModule({
-      // imports: [MarketingModule],
+      imports: [{{ test_import }}],
     }).compile();
 
     app = testModule.createNestApplication();
-    // await configureNestExpressApplication(app, 'service-name-here');
+    await configureNestExpressApplication(app, '{{ service_name }}');
 
     await app.init();
   });

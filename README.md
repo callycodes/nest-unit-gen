@@ -20,7 +20,7 @@ $ npm install -g nest-unit-gen
 $ nest-unit-gen COMMAND
 running command...
 $ nest-unit-gen (--version)
-nest-unit-gen/0.0.0 darwin-x64 node-v17.8.0
+nest-unit-gen/1.0.0 darwin-x64 node-v17.8.0
 $ nest-unit-gen --help [COMMAND]
 USAGE
   $ nest-unit-gen COMMAND
@@ -29,8 +29,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`nest-unit-gen hello PERSON`](#nest-unit-gen-hello-person)
-* [`nest-unit-gen hello world`](#nest-unit-gen-hello-world)
+* [`nest-unit-gen controllers DIRECTORY EXTENSION SERVICE`](#nest-unit-gen-controllers-directory-extension-service)
 * [`nest-unit-gen help [COMMAND]`](#nest-unit-gen-help-command)
 * [`nest-unit-gen plugins`](#nest-unit-gen-plugins)
 * [`nest-unit-gen plugins:install PLUGIN...`](#nest-unit-gen-pluginsinstall-plugin)
@@ -42,45 +41,30 @@ USAGE
 * [`nest-unit-gen plugins:uninstall PLUGIN...`](#nest-unit-gen-pluginsuninstall-plugin-2)
 * [`nest-unit-gen plugins update`](#nest-unit-gen-plugins-update)
 
-## `nest-unit-gen hello PERSON`
+## `nest-unit-gen controllers DIRECTORY EXTENSION SERVICE`
 
 Say hello
 
 ```
 USAGE
-  $ nest-unit-gen hello [PERSON] -f <value>
+  $ nest-unit-gen controllers [DIRECTORY] [EXTENSION] [SERVICE] [-o <value>]
 
 ARGUMENTS
-  PERSON  Person to say hello to
+  DIRECTORY  Directory containing files to create unit tests for
+  EXTENSION  Extension to create unit tests for
+  SERVICE    Service name when starting up the app for tests
 
 FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
+  -o, --overwrite=<value>  Overwrite existing spec files
 
 DESCRIPTION
   Say hello
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ nest-unit-gen controllers ./src/controllers .controller.ts service-core
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/nest-unit-gen/hello-world/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `nest-unit-gen hello world`
-
-Say hello world
-
-```
-USAGE
-  $ nest-unit-gen hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+_See code: [dist/commands/controllers/index.ts](https://github.com/nest-unit-gen/hello-world/blob/v1.0.0/dist/commands/controllers/index.ts)_
 
 ## `nest-unit-gen help [COMMAND]`
 
