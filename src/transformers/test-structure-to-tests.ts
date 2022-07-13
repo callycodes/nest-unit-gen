@@ -33,23 +33,39 @@ export const generateBodyParameter = (params: TestMethodParameter[], imports: Te
   params.filter(param => param.schema).map(param => {
     const schema = imports.find(i => i.name === param.schema)
 
+    let alternativeVal
+    try {
     // eslint-disable-next-line array-callback-return
-    schema.schemaDestructed.map(v => {
-      let alternativeVal
-      switch (v.type) {
+      schema.schemaDestructed.map(v => {
+        switch (v.type) {
+        case 'string':
+          alternativeVal = 1
+          break
+        case 'number':
+          alternativeVal = 'test'
+          break
+        case 'object':
+          alternativeVal = null
+          break
+        }
+
+        payload[v.name.trim()] = alternativeVal
+      })
+    } catch {
+      switch (param.type) {
       case 'string':
         alternativeVal = 1
         break
       case 'number':
         alternativeVal = 'test'
         break
-      case 'object':
+      default:
         alternativeVal = null
         break
       }
 
-      payload[v.name.replace(' ', '')] = alternativeVal
-    })
+      payload[param.name.trim()] = alternativeVal
+    }
   })
   return payload
 }

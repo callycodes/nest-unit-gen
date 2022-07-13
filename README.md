@@ -20,7 +20,7 @@ $ npm install -g nest-unit-gen
 $ nest-unit-gen COMMAND
 running command...
 $ nest-unit-gen (--version)
-nest-unit-gen/1.0.0 darwin-x64 node-v17.8.0
+nest-unit-gen/1.0.1 darwin-x64 node-v17.8.0
 $ nest-unit-gen --help [COMMAND]
 USAGE
   $ nest-unit-gen COMMAND
@@ -64,7 +64,7 @@ EXAMPLES
   $ nest-unit-gen controllers ./src/controllers .controller.ts service-core
 ```
 
-_See code: [dist/commands/controllers/index.ts](https://github.com/nest-unit-gen/hello-world/blob/v1.0.0/dist/commands/controllers/index.ts)_
+_See code: [dist/commands/controllers/index.ts](https://github.com/nest-unit-gen/hello-world/blob/v1.0.1/dist/commands/controllers/index.ts)_
 
 ## `nest-unit-gen help [COMMAND]`
 

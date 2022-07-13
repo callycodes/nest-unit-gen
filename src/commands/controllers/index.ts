@@ -48,15 +48,20 @@ export default class GenerateControllerValidationTestsCommand extends Command {
 
     const files = await getFileTree(directory)
 
+    console.log('Retrieved file tree')
     const filteredFiles = files.filter(file => file.name.includes(extension))
 
+    console.log('Parsed files')
     const declarations = await Promise.all(filteredFiles.map(file => parseFile(file)))
 
+    console.log('Created internal declarations')
     const declarationsWithSchemas = await Promise.all(declarations.map(declaration => parseSchema(declaration)))
 
+    console.log('Imported schemas')
     const moduleInfo = getModuleInfo(directory)
     moduleInfo.service = service
 
     await Promise.all(declarationsWithSchemas.map(testStruct => generateTests(testStruct, moduleInfo)))
+    console.log('Done')
   }
 }

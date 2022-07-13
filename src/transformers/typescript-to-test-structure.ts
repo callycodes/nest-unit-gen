@@ -90,9 +90,14 @@ export const parseMethods = async (parsedClass: tsFileStruct.ClassModel, struct:
       return
     }
 
-    const regexPath = method.text.match(`${httpDecorator}\\((.*?)\\)`)[0]
+    let regexPath
+    try {
+      regexPath = method.text.match(`${httpDecorator}\\((.*?)\\)`)[0]
+    } catch {
+      regexPath = method.text.split(`${httpDecorator}(`)[1].split(')')[0].trim()
+    }
 
-    const methodPath = regexPath.replace(httpDecorator, '').replace('(\'', '').replace('\')', '')
+    const methodPath = regexPath.replace(httpDecorator, '').replace('(\'', '').replace('\')', '').replace('\'', '').replace('\'', '')
 
     const methodParameters = method.arguments.map(arguement => {
       const isBodyParam = arguement.text.includes('@Body')
